@@ -1,1 +1,0 @@
-let players = [],guesses = [],game = document.getElementById('game'),playerName,newRound, pbutton = [], playersLeft = [],playerList = document.getElementById('playerList'),hide = document.getElementById('hide');
