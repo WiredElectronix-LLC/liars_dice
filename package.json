@@ -1,0 +1,20 @@
+{
+  "name": "liars_dice",
+  "version": "0.0.1",
+  "description": "game of liars dice online",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WiredElectronix-LLC/liars_dice.git"
+  },
+  "keywords": [],
+  "author": "Craig Ford | WiredElectronix LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WiredElectronix-LLC/liars_dice/issues"
+  },
+  "homepage": "https://github.com/WiredElectronix-LLC/liars_dice#readme"
+}

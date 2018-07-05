@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    /* background-color: #000; */
+}
+#game{
+    position: relative;
+}
+.dice{
+    list-style: none;
+    /* position: absolute; */
+    /* left: 10px; */
+    /* top: 100px; */
+}
+.dice li{
+    display: inline;
+    color: white;
+    background-color: black;
+    height: 25px;
+    width: 25px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin-right: 5px;
+}
+#end,#roll,.dice,#lift, select, #guess,#preGuess,.styled-select,#wilds,#totalDice,label{
+    display: none;
+}
+
+.row{
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+button{
+    padding: 5px 15px;
+    color: #fff;
+    background-color: #2F6AA1;
+    vertical-align: middle;
+    border-radius: 10px;
+    border: none;
+}
+button:hover{
+    background-color: #5887b3;
+    box-shadow: 2px 2px 2px #000;
+}
+
+/* select{
+    width: 50px;
+    height: 100%;
+    text-align: center;
+} */
+
+.styled-select {
+    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 85% 0;
+    height: 29px;
+    overflow: hidden;
+    width: 75px;
+  }
+  .styled-select select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px;
+    color: #fff;
+    /* If you add too much padding here, the options won't show in IE */
+    width: 100px;
+  }
+  .semi-square {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .blue {
+    background-color: #2F6AA1;
+  }
+
+  #wilds{
+      width: 15%;
+      margin: 15px;
+      padding: 10px;
+      border-radius: 10px;
+  }
+  #wilds.natural{
+    background-color: #7F0000;
+    color: #fff;
+  }
+  #wilds.wild{
+    background-color: #006400;
+    color: #fff;
+  }
+
+.players{
+    margin: 10px;
+}

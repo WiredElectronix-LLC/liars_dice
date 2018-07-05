@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liars Dice Game</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div class="container"> 
+        
+        <div id="hide">
+            <div class="row">
+                <input type="text" id="name">
+                <button id='join' onclick="joinGame()">Join</button>
+                <button id='start' onclick="startGame()">Start Game</button>
+                <button id='end' onclick="endGame()">End Game</button>    
+            </div>
+            <div class="row">
+                <div id="prevGuess"></div>
+                <div id="wilds"></div>
+                <div id="totalDice"></div>    
+            </div>
+            <div class="row">
+                <label>Quantity</label>
+                <span class="styled-select blue semi-square">
+                    <select name="quantity" id="quantity"></select>
+                </span>
+                <label>Numbers</label>
+                <span class="styled-select blue semi-square">
+                    <select name="num" id="num">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>    
+                </span>
+                <button id="lift">Lift</button>
+                <button id="guess">Guess</button>   
+            </div>
+            <div class="row">
+                <ul class="dice"></ul>    
+            </div>
+            <div class="row">
+                <div id="playerList"> </div>
+            </div>   
+        </div>
+        <div id="game"></div>
+    </div>
+        
+
+
+    <script src="/js/vars.js"></script>
+    <script src="/js/functions.js"></script>
+    <script src="/js/die.js"></script>
+    <script src="/js/player.js"></script>
+    <script src="/js/game.js"></script>
+</body>
+</html>
