@@ -22,7 +22,7 @@
                 <div id="wilds"></div>
                 <div id="totalDice"></div>    
             </div>
-            <div class="row">
+            <div class="row" id="turnControls">
                 <label>Quantity</label>
                 <span class="styled-select blue semi-square">
                     <select name="quantity" id="quantity"></select>
@@ -38,11 +38,11 @@
                         <option value="6">6</option>
                     </select>    
                 </span>
-                <button id="lift">Lift</button>
-                <button id="guess">Guess</button>   
+                <button id="lift" onclick="lift()">Lift</button>
+                <button id="guess" onclick="guess()">Guess</button>   
             </div>
             <div class="row">
-                <ul class="dice"></ul>    
+                <ul id="dice"></ul>    
             </div>
             <div class="row">
                 <div id="playerList"> </div>
@@ -54,10 +54,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.slim.js" integrity="sha256-0YA7ixx4+I4GrLichcjWSQHIUSQiI8ojTDqsK7AZ5zU=" crossorigin="anonymous"></script>
     <script src="/client/js/index.js"></script>
-    <!-- <script src="/js/vars.js"></script>
-    <script src="/js/functions.js"></script>
-    <script src="/js/die.js"></script>
-    <script src="/js/player.js"></script>
-    <script src="/js/game.js"></script> -->
 </body>
 </html>
