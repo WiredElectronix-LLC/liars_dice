@@ -53,7 +53,7 @@ class Player {
     }
 
     lift(){
-        console.log(guesses);
+        // console.log(guesses);
         let pos = players.map(e => e.name ).indexOf(this.name);
         if(num(guesses[guesses.length-1][1])){
             this.lostRound();
@@ -97,9 +97,21 @@ io.sockets.on('connection', socket => {
     console.log(`Connected: ${connections.length} sockets connected`);
 
     socket.on('disconnect', data => {
-        // players.splice(players[socket.playerIndex],1);
-        console.log(`${socket.playerIndex} has left`);
+        // console.log(players[socket.playerIndex]);
+        // console.log(players);
+        // players.splice(socket.playerIndex,1);
+        // // console.log(`${socket.playerIndex} has left`);
+        // players.forEach((player, index) => {
+        //     if (index >= socket.playerIndex){
+        //         let pos = connections.map(e => e.playerIndex).indexOf(index+1);
+        //         // console.log(connections[pos].playerIndex);
+        //         connections[pos].playerIndex = index;
+        //         // console.log(connections[pos].username);
+        //         // console.log(connections[pos].playerIndex);
+        //     }
+        // });
         connections.splice(connections.indexOf(data));
+        // console.log(players);
         console.log(`Disconnected: ${connections.length} sockets connected`)
     })
     socket.on('join', data => {
@@ -115,12 +127,22 @@ io.sockets.on('connection', socket => {
         endGame();
     })
     socket.on('nextPlayer', () => { 
-        if (currPlayer == players.length - 1) {
-            currPlayer = 0;
-        }else{
-            currPlayer++;
+        function currPlayerInc(){
+            if (currPlayer == players.length - 1) {
+                currPlayer = 0;
+            }else{
+                currPlayer++;
+            }    
+            checkIfOut();
         }
-        turn();
+        function checkIfOut(){
+            if (!players[currPlayer].out()) {
+                turn();
+            } else {
+                currPlayerInc();
+            }
+        }
+        currPlayerInc();
     }) 
     socket.on('guess',(data)=>{
         // console.log(data);
@@ -140,7 +162,7 @@ function wonRound(lost, won){
     io.emit('end of round', `${won} won the round and ${lost} lost a die`);
     playersLeft = [];
     players.forEach(player => {
-        console.log(player);
+        // console.log(player);
         if(!player.out()){
             playersLeft.push(player);
         }
