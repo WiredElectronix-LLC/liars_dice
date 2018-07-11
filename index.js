@@ -58,7 +58,7 @@ class Player {
         if(num(guesses[guesses.length-1][1])){
             this.lostRound();
             if (pos == 0) {
-                wonRound(this.name,players[pos+1].name);
+                wonRound(this.name,players[players.length-1].name);
             } else {
                 wonRound(this.name,players[pos-1].name);
             }
@@ -127,21 +127,6 @@ io.sockets.on('connection', socket => {
         endGame();
     })
     socket.on('nextPlayer', () => { 
-        function currPlayerInc(){
-            if (currPlayer == players.length - 1) {
-                currPlayer = 0;
-            }else{
-                currPlayer++;
-            }    
-            checkIfOut();
-        }
-        function checkIfOut(){
-            if (!players[currPlayer].out()) {
-                turn();
-            } else {
-                currPlayerInc();
-            }
-        }
         currPlayerInc();
     }) 
     socket.on('guess',(data)=>{
@@ -151,6 +136,7 @@ io.sockets.on('connection', socket => {
     socket.on('lift',()=>{
         players[socket.playerIndex].lift();
         currPlayer = socket.playerIndex;
+        checkIfOut(true)
     })
 })
 
@@ -158,6 +144,26 @@ server.listen(port);
 console.log(`App is running on port ${port}...`);
 
 // Functions
+function currPlayerInc(nR = false){
+    if (currPlayer == players.length - 1) {
+        currPlayer = 0;
+    }else{
+        currPlayer++;
+    }    
+    checkIfOut(nR);
+}
+function checkIfOut(nR = false){
+    if (!players[currPlayer].out()) {
+        if (nR) {
+            gameRoundSetup();
+        }else{
+            turn();
+        }
+    } else {
+        currPlayerInc(nR);
+    }
+}
+
 function wonRound(lost, won){
     io.emit('end of round', `${won} won the round and ${lost} lost a die`);
     playersLeft = [];
